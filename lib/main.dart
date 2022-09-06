@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_weather_app/data_service.dart';
 import 'package:simple_weather_app/drawerMenu.dart';
 import 'package:simple_weather_app/models.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://www.accuweather.com/');
 
 void main() {
   runApp(MyApp());
@@ -19,34 +21,25 @@ class _MyAppState extends State<MyApp> {
 
   WeatherResponse _response;
 
-  DateTime timeBackPressed = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: WillPopScope(
-          onWillPop: () async {
-            final difference = DateTime.now().difference(timeBackPressed);
-            final isExitWarning = difference >= Duration(seconds: 2);
-            timeBackPressed = DateTime.now();
-            if (isExitWarning) {
-              final msgg = 'Press Back Again to exit';
-              Fluttertoast.showToast(msg: msgg, fontSize: 18);
-              return false;
-            } else {
-              Fluttertoast.cancel();
-              return true;
-            }
-          },
+        home: Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+            image: NetworkImage(
+                'https://static.vecteezy.com/system/resources/previews/001/227/289/large_2x/blue-cloudy-sky-free-photo.jpg'),
+            fit: BoxFit.cover,
+          )),
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
               backgroundColor: Color.fromARGB(255, 20, 79, 241),
-              title: Center(child: Text('Simple Weather App')),
+              title: Center(child: Text('Weatherify')),
             ),
             drawer: DrawerMenu(),
-            backgroundColor: Colors.lightBlueAccent,
+            backgroundColor: Colors.transparent,
             body: Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +53,7 @@ class _MyAppState extends State<MyApp> {
                             width: 150,
                             child: TextField(
                               controller: _cityTextController,
-                              decoration: InputDecoration(labelText: 'City'),
+                              decoration: InputDecoration(hintText: 'City'),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -80,7 +73,7 @@ class _MyAppState extends State<MyApp> {
                         children: [
                           Container(
                             margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                            color: Colors.blueAccent,
+                            color: Color.fromRGBO(68, 128, 255, 0.6),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -88,7 +81,7 @@ class _MyAppState extends State<MyApp> {
                                 Text(
                                   '${_response.weatherInfo.description} \n in ${_response.cityName}',
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.white),
+                                      fontSize: 20, color: Colors.black),
                                 ),
                               ],
                             ),
@@ -138,6 +131,18 @@ class _MyAppState extends State<MyApp> {
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 25,
+                            child: FlatButton(
+                              onPressed: _launchUrl,
+                              child: Text(
+                                'For more information Click here',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                   ]),
@@ -149,5 +154,11 @@ class _MyAppState extends State<MyApp> {
   void _search() async {
     final response = await _dataService.getWeather(_cityTextController.text);
     setState(() => _response = response);
+  }
+}
+
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
   }
 }

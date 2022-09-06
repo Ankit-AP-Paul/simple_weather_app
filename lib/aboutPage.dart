@@ -5,6 +5,8 @@ final Uri _url = Uri.parse('https://www.linkedin.com/in/ankit-paul-914936234/');
 final Uri _url2 = Uri.parse('https://www.linkedin.com/in/arpan-de-001ab31b9/');
 final Uri _url3 =
     Uri.parse('https://github.com/Ankit-AP-Paul/simple_weather_app');
+final Uri _url4 =
+    Uri.parse('https://www.linkedin.com/in/hindol-banerjee-93701124b/');
 
 class AppInfo extends StatelessWidget {
   @override
@@ -30,6 +32,7 @@ class AppInfo extends StatelessWidget {
                 fontSize: 20,
                 color: Color.fromARGB(255, 20, 79, 241)),
           ),
+          Text('Made using OpenWeather API'),
           Text(
             'v1.0.0',
             style: TextStyle(
@@ -101,6 +104,18 @@ class AppInfo extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 25,
+            child: FlatButton(
+              onPressed: _launchUrl4,
+              child: Text(
+                'Hindol Banerjee',
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -122,5 +137,11 @@ Future<void> _launchUrl2() async {
 Future<void> _launchUrl3() async {
   if (!await launchUrl(_url3)) {
     throw 'Could not launch $_url3';
+  }
+}
+
+Future<void> _launchUrl4() async {
+  if (!await launchUrl(_url4)) {
+    throw 'Could not launch $_url4';
   }
 }
