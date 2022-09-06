@@ -26,7 +26,7 @@ class AppInfo extends StatelessWidget {
           ),
           Image.asset('images/app_icon.png', height: 150),
           Text(
-            'Simple Weather App',
+            'Weatherify',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
