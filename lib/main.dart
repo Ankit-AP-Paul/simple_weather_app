@@ -3,10 +3,14 @@ import 'package:simple_weather_app/data_service.dart';
 import 'package:simple_weather_app/drawerMenu.dart';
 import 'package:simple_weather_app/models.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 
 final Uri _url = Uri.parse('https://www.accuweather.com/');
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -28,15 +32,14 @@ class _MyAppState extends State<MyApp> {
         home: Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-            image: NetworkImage(
-                'https://static.vecteezy.com/system/resources/previews/001/227/289/large_2x/blue-cloudy-sky-free-photo.jpg'),
+            image: AssetImage('images/app_background.jpg'),
             fit: BoxFit.cover,
           )),
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
               backgroundColor: Color.fromARGB(255, 20, 79, 241),
-              title: Center(child: Text('Weatherify')),
+              title: Center(child: Text('WeatherRader')),
             ),
             drawer: DrawerMenu(),
             backgroundColor: Colors.transparent,
@@ -137,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                             child: FlatButton(
                               onPressed: _launchUrl,
                               child: Text(
-                                'For more information Click here',
+                                'For more weatherinfo Click here',
                                 style: TextStyle(
                                   fontSize: 15,
                                 ),

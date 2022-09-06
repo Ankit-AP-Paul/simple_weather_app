@@ -26,7 +26,7 @@ class AppInfo extends StatelessWidget {
           ),
           Image.asset('images/app_icon.png', height: 150),
           Text(
-            'Weatherify',
+            'WeatherRader',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
