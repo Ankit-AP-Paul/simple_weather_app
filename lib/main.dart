@@ -5,7 +5,7 @@ import 'package:simple_weather_app/models.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/services.dart';
 
-final Uri _url = Uri.parse('https://www.accuweather.com/');
+final Uri _url = Uri.parse('https://weather-radar400.herokuapp.com/');
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
