@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
                           child: SizedBox(
                             width: 150,
                             child: TextField(
+                              textCapitalization: TextCapitalization.sentences,
                               controller: _cityTextController,
                               decoration: InputDecoration(hintText: 'City'),
                               textAlign: TextAlign.center,
