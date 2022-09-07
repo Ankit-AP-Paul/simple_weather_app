@@ -1,4 +1,4 @@
-# simple_weather_app
+# Weather Rader
 
 A new Flutter project.
 
