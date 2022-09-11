@@ -5,6 +5,7 @@ A new Flutter project.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+The Web App connected to it, gives it a spotlight to stand out than others
 
 A few resources to get you started if this is your first Flutter project:
 
