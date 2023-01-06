@@ -8,7 +8,7 @@ An open-source weather app using Open Weather API
 
 ## Open Weather API Reference
 
-```http
+```
   https://openweathermap.org/api
 ```
 
@@ -18,7 +18,7 @@ An open-source weather app using Open Weather API
 
 #### Get city
 
-```http
+```
   GET /api.openweathermap.org/data/2.5/weather/${city}
 ```
 
