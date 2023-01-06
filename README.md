@@ -47,6 +47,8 @@ flutter run
 ## Author
 
 - [@Ankit Paul](https://github.com/Ankit-AP-Paul)
+- [@Hindol Banerjee](https://github.com/Hindol19)
+- [@Arpan De](https://github.com/neo-deus)
 
 
 ## Feedback
