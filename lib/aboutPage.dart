@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,13 +11,15 @@ final Uri _url4 =
     Uri.parse('https://www.linkedin.com/in/hindol-banerjee-93701124b/');
 
 class AppInfo extends StatelessWidget {
+  const AppInfo({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.lightBlueAccent.shade100,
       appBar: AppBar(
-        title: Text('About'),
-        backgroundColor: Color.fromARGB(255, 20, 79, 241),
+        title: const Text('About'),
+        backgroundColor: const Color.fromARGB(255, 20, 79, 241),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,15 +29,15 @@ class AppInfo extends StatelessWidget {
             width: double.infinity,
           ),
           Image.asset('images/app_icon.png', height: 150),
-          Text(
-            'WeatherRader',
+          const Text(
+            'WeatherRadar',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
                 color: Color.fromARGB(255, 20, 79, 241)),
           ),
-          Text('Made using OpenWeather API'),
-          Text(
+          const Text('Made using OpenWeather API'),
+          const Text(
             'v1.0.0',
             style: TextStyle(
                 fontSize: 20, color: Color.fromARGB(255, 20, 79, 241)),
@@ -41,29 +45,30 @@ class AppInfo extends StatelessWidget {
           Container(
             height: 40,
           ),
-          Text(
+          const Text(
             'This is an open source project and can be found on',
             style: TextStyle(
               fontSize: 15,
             ),
           ),
-          FlatButton(
+          const TextButton(
             onPressed: _launchUrl3,
             child: Text(
               'GitHub',
               style: TextStyle(
+                color: Color.fromARGB(255, 20, 79, 241),
                 fontWeight: FontWeight.bold,
                 fontSize: 25,
               ),
             ),
           ),
-          Text(
+          const Text(
             'If you liked our work',
             style: TextStyle(
               fontSize: 15,
             ),
           ),
-          Text(
+          const Text(
             'show some ❤ and ⭐ the repository',
             style: TextStyle(
               fontSize: 15,
@@ -72,7 +77,7 @@ class AppInfo extends StatelessWidget {
           Container(
             height: 40,
           ),
-          Text(
+          const Text(
             'Made with ❤ by',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -80,39 +85,72 @@ class AppInfo extends StatelessWidget {
               fontSize: 15,
             ),
           ),
-          SizedBox(
-            height: 25,
-            child: FlatButton(
-              onPressed: _launchUrl,
-              child: Text(
-                'Ankit Paul',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
+          // const SizedBox(
+          //   height: 30,
+          //   child: TextButton(
+          //     onPressed: _launchUrl,
+          //     child: Text(
+          //       'Ankit Paul',
+          //       style: TextStyle(
+          //         fontSize: 15,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 30,
+          //   child: TextButton(
+          //     onPressed: _launchUrl2,
+          //     child: Text(
+          //       'Arpan De',
+          //       style: TextStyle(
+          //         fontSize: 15,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 30,
+          //   child: TextButton(
+          //     onPressed: _launchUrl4,
+          //     child: Text(
+          //       'Hindol Banerjee',
+          //       style: TextStyle(
+          //         fontSize: 15,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          GestureDetector(
+            onTap: _launchUrl,
+            child: const Text(
+              'Ankit Paul',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(
-            height: 25,
-            child: FlatButton(
-              onPressed: _launchUrl2,
-              child: Text(
-                'Arpan De',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
+          GestureDetector(
+            onTap: _launchUrl4,
+            child: const Text(
+              'Hindol Banerjee',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          SizedBox(
-            height: 25,
-            child: FlatButton(
-              onPressed: _launchUrl4,
-              child: Text(
-                'Hindol Banerjee',
-                style: TextStyle(
-                  fontSize: 15,
-                ),
+          GestureDetector(
+            onTap: _launchUrl2,
+            child: const Text(
+              'Arpan De',
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
