@@ -2,7 +2,7 @@
     package="com.example.simple_weather_app">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="simple_weather_app"
+        android:label="WeatherRadar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

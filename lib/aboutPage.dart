@@ -16,10 +16,10 @@ class AppInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent.shade100,
+      backgroundColor: Colors.grey.shade400,
       appBar: AppBar(
         title: const Text('About'),
-        backgroundColor: const Color.fromARGB(255, 20, 79, 241),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

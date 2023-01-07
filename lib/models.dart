@@ -2,6 +2,7 @@
 {
   "weather": [
     {
+      "main": "Rain",
       "description": "moderate rain",
       "icon": "10d"
     }
@@ -30,15 +31,17 @@ class WindInfo {
 }
 
 class WeatherInfo {
+  final String main;
   final String description;
   final String icon;
 
-  WeatherInfo({this.description, this.icon});
+  WeatherInfo({this.main, this.description, this.icon});
 
   factory WeatherInfo.fromJson(Map<String, dynamic> json) {
+    final main = json['main'];
     final description = json['description'];
     final icon = json['icon'];
-    return WeatherInfo(description: description, icon: icon);
+    return WeatherInfo(main: main, description: description, icon: icon);
   }
 }
 

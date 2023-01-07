@@ -9,14 +9,14 @@ class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.lightBlueAccent.shade100,
+      backgroundColor: Colors.grey.shade400,
       child: ListView(
         // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 20, 79, 241),
+              color: Color.fromARGB(255, 0, 0, 0),
             ),
             child: Center(
               child: Text(
@@ -32,7 +32,7 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             leading: const Icon(
               Icons.home,
-              color: Color.fromARGB(255, 20, 79, 241),
+              color: Colors.black,
             ),
             title: const Text(
               'Home',
@@ -48,7 +48,7 @@ class DrawerMenu extends StatelessWidget {
           ListTile(
             leading: const Icon(
               Icons.info_outline,
-              color: Color.fromARGB(255, 20, 79, 241),
+              color: Colors.black,
             ),
             title: const Text(
               'About',
